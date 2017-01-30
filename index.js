@@ -61,7 +61,7 @@ function serveFiles(files) {
             res.writeHead(405); // method not allowed
             return res.end();
         }
-        var path = req.url.replace(/^\//, '');
+        var path = req.url.replace(/^\//, '').replace(/\?.*$/, '');
         var file = files[path];
         if (!file) {
             res.writeHead(404); // file not found
